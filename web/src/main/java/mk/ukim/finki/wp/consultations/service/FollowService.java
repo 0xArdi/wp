@@ -9,5 +9,5 @@ public interface FollowService {
 
     void unFollow(String studentIndex, String professorId);
 
-    Page<Student> getFollowers(int page, int pageSize);
+    Page<Student> getFollowers(String professorId, int page, int pageSize);
 }

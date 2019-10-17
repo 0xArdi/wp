@@ -41,7 +41,7 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
-    public Page<Student> getFollowers(int page, int pageSize) {
-        return this.professorRepository.getFollowers(page, pageSize);
+    public Page<Student> getFollowers(String professorId, int page, int pageSize) {
+        return this.professorRepository.getFollowers(professorId, page, pageSize);
     }
 }
