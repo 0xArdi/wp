@@ -2,7 +2,6 @@ package mk.ukim.finki.wp.consultations.model.vm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import mk.ukim.finki.wp.consultations.model.Student;
 import mk.ukim.finki.wp.consultations.model.exceptions.InvalidPageException;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class Page<T> {
 
     private List<T> content;
 
-    public static Page<Student> slice(List<Student> content, int page, int pageSize) {
+    public static <T> Page<T> slice(List<T> content, int page, int pageSize) {
         int pageStart = page * pageSize;
         int pageEnd = (page + 1) * pageSize;
 

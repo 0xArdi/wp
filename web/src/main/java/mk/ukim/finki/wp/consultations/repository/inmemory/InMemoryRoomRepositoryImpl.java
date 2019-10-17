@@ -29,7 +29,7 @@ public class InMemoryRoomRepositoryImpl implements RoomRepository {
     @Override
     public List<Room> searchRooms(String term) {
         return DataHolder.rooms.stream()
-                .filter(r -> r.getName().contains(term) || r.getDescription().contains(term) || r.getBuilding().getDescription().contains(term))
+                .filter(r -> r.matches(term))
                 .collect(Collectors.toList());
     }
 

@@ -21,4 +21,9 @@ public class Professor {
 
     private List<Student> followers;
 
+    public boolean matches(String term) {
+        return this.firstName.matches(term) ||
+                this.lastName.matches(term) ||
+                this.title.matches(term);
+    }
 }

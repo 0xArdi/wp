@@ -1,6 +1,8 @@
 package mk.ukim.finki.wp.consultations.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @AllArgsConstructor
@@ -13,4 +15,10 @@ public class Room {
     private Building building;
 
     private String description;
+
+    public boolean matches(String term) {
+        return this.name.contains(term) ||
+                this.description.contains(term) ||
+                this.building.getDescription().contains(term);
+    }
 }
