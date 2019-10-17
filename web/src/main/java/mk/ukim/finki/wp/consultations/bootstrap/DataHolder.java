@@ -80,7 +80,7 @@ public class DataHolder {
         slots.add(ConsultationSlot.createRecurringSlot(rs, rooms.get(1), DayOfWeek.THURSDAY, LocalTime.parse("19:00"), LocalTime.parse("21:00")));
 
 
-        slots.add(ConsultationSlot.createOnTimeSlot(km, rooms.get(1), LocalDate.now().plusDays(7), LocalTime.parse("10:00"), LocalTime.parse("12:00")));
+        slots.add(ConsultationSlot.createOneTimeSlot(km, rooms.get(1), LocalDate.now().plusDays(7), LocalTime.parse("10:00"), LocalTime.parse("12:00")));
         slots.add(ConsultationSlot.createRecurringSlot(km, rooms.get(1), DayOfWeek.THURSDAY, LocalTime.parse("19:00"), LocalTime.parse("21:00")));
 
 

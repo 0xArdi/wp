@@ -1,6 +1,9 @@
 package mk.ukim.finki.wp.consultations.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -13,6 +16,12 @@ public class ConsultationSlot {
     private ConsultationSlot() {
 
     }
+
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    private static int slotsCounter = 1;
+
+    private int slotId;
 
     private Professor professor;
 
@@ -27,8 +36,10 @@ public class ConsultationSlot {
     private LocalTime to;
 
 
-    public static ConsultationSlot createRecurringSlot(Professor professor, Room room, DayOfWeek dayOfWeek, LocalTime from, LocalTime to) {
+    public static synchronized ConsultationSlot createRecurringSlot(Professor professor, Room room, DayOfWeek dayOfWeek, LocalTime from, LocalTime to) {
         ConsultationSlot slot = new ConsultationSlot();
+        slot.slotId = slotsCounter;
+        slotsCounter++;
         slot.professor = professor;
         slot.room = room;
         slot.dayOfWeek = dayOfWeek;
@@ -37,8 +48,10 @@ public class ConsultationSlot {
         return slot;
     }
 
-    public static ConsultationSlot createOnTimeSlot(Professor professor, Room room, LocalDate date, LocalTime from, LocalTime to) {
+    public static synchronized ConsultationSlot createOneTimeSlot(Professor professor, Room room, LocalDate date, LocalTime from, LocalTime to) {
         ConsultationSlot slot = new ConsultationSlot();
+        slot.slotId = slotsCounter;
+        slotsCounter++;
         slot.professor = professor;
         slot.room = room;
         slot.date = date;
