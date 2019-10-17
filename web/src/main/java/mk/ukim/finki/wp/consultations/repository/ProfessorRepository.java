@@ -12,5 +12,5 @@ public interface ProfessorRepository {
 
     Professor save(Professor professor);
 
-    Page<Student> getFollowers(int page, int pageSize);
+    Page<Student> getFollowers(String professorId, int page, int pageSize);
 }
