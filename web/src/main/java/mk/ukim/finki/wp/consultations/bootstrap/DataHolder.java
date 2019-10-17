@@ -16,13 +16,13 @@ import java.util.List;
 public class DataHolder {
 
 
-    public static List<Room> rooms = new ArrayList<>();
+    public static final List<Room> rooms = new ArrayList<>();
 
-    private static List<Student> students = new ArrayList<>();
+    public static final List<Student> students = new ArrayList<>();
 
-    private static List<Professor> professors = new ArrayList<>();
+    public static final List<Professor> professors = new ArrayList<>();
 
-    private static List<ConsultationSlot> slots = new ArrayList<>();
+    public static final List<ConsultationSlot> slots = new ArrayList<>();
 
     @PostConstruct
     public void init() {
