@@ -14,7 +14,6 @@ import java.io.IOException;
 public class ThymeleafBasicServlet extends HttpServlet {
 
     private SpringTemplateEngine springTemplateEngine;
-    private WebContext webContext;
 
     public ThymeleafBasicServlet(SpringTemplateEngine springTemplateEngine) {
         this.springTemplateEngine = springTemplateEngine;
@@ -23,12 +22,11 @@ public class ThymeleafBasicServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
-        this.webContext = new WebContext(request, response, request.getServletContext());
-        this.webContext.setVariable("recipient", session.getAttribute("username"));
-        this.webContext.setVariable("ipaddress",request.getRemoteHost());
-        this.springTemplateEngine.process("thymeleaf-index.html", this.webContext, response.getWriter());
+        WebContext webContext = new WebContext(request, response, request.getServletContext());
+        webContext.setVariable("recipient", session.getAttribute("username"));
+        webContext.setVariable("ipaddress", request.getRemoteHost());
+        this.springTemplateEngine.process("thymeleaf-index.html", webContext, response.getWriter());
     }
-
 
 
 }

@@ -18,7 +18,6 @@ public class RoomThymeleafServlet extends HttpServlet {
 
     private RoomService roomService;
     private SpringTemplateEngine springTemplateEngine;
-    private WebContext webContext;
 
     public RoomThymeleafServlet(SpringTemplateEngine springTemplateEngine, RoomService roomService) {
         this.springTemplateEngine = springTemplateEngine;
@@ -27,10 +26,10 @@ public class RoomThymeleafServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.webContext = new WebContext(req,resp,req.getServletContext());
+        WebContext webContext = new WebContext(req, resp, req.getServletContext());
         List<Room> rooms = roomService.getAllRooms();
-        this.webContext.setVariable("rooms",rooms);
+        webContext.setVariable("rooms", rooms);
         resp.setContentType("text/html; charset=UTF-8");
-        this.springTemplateEngine.process("rooms.html", this.webContext, resp.getWriter());
+        this.springTemplateEngine.process("rooms.html", webContext, resp.getWriter());
     }
 }

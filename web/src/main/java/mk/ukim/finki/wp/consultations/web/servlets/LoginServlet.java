@@ -15,7 +15,6 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     private SpringTemplateEngine springTemplateEngine;
-    private WebContext webContext;
 
     public LoginServlet(SpringTemplateEngine springTemplateEngine) {
         this.springTemplateEngine = springTemplateEngine;
@@ -23,8 +22,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.webContext = new WebContext(req, resp, req.getServletContext());
-        this.springTemplateEngine.process("login.html", this.webContext, resp.getWriter());
+        WebContext webContext = new WebContext(req, resp, req.getServletContext());
+        this.springTemplateEngine.process("login.html", webContext, resp.getWriter());
     }
 
     @Override
