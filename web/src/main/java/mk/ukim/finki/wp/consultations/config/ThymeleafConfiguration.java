@@ -7,7 +7,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-@Configuration
+//@Configuration
 public class ThymeleafConfiguration {
 
     private final ApplicationContext applicationContext;

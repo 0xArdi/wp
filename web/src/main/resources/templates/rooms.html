@@ -1,7 +1,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Систем за консултации</title>
@@ -26,7 +26,7 @@
                     <a class="nav-link" href="index.html">Термини <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="rooms.html">Простории</a>
+                    <a class="nav-link" href="/rooms">Простории</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -51,30 +51,30 @@
             <div class="row">
                 <th:block th:each="room : ${rooms}">
                     <div class="col-md-6 mt-2 col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-6" th:text="${room.name}">
-                                    117
-                                </div>
-                                <div class="col-md-6 text-right">
-                                    <a href="#" class="btn btn-primary" title="Уреди">
-                                        <i class="fa fa-fw fa-edit"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-danger" title="Избриши">
-                                        <i class="fa fa-fw fa-trash"></i>
-                                    </a>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6" th:text="${room.name}">
+                                        117
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <a href="#" class="btn btn-primary" title="Уреди">
+                                            <i class="fa fa-fw fa-edit"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-danger" title="Избриши">
+                                            <i class="fa fa-fw fa-trash"></i>
+                                        </a>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-text" th:text="${room.description}">
+                            <div class="card-body">
+                                <div class="card-text" th:text="${room.description}">
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </th:block>
 
             </div>
