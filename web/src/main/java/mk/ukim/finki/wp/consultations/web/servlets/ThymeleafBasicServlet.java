@@ -1,13 +1,8 @@
-package mk.ukim.finki.wp.consultations.servlets;
+package mk.ukim.finki.wp.consultations.web.servlets;
 
-import org.springframework.context.ApplicationContext;
-import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.templatemode.TemplateMode;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

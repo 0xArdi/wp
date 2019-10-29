@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.consultations.servlets;
+package mk.ukim.finki.wp.consultations.web.servlets;
 
 import mk.ukim.finki.wp.consultations.model.Room;
 import mk.ukim.finki.wp.consultations.service.RoomService;

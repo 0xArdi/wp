@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.consultations.filters;
+package mk.ukim.finki.wp.consultations.web.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

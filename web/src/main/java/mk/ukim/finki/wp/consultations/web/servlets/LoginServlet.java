@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.consultations.servlets;
+package mk.ukim.finki.wp.consultations.web.servlets;
 
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
