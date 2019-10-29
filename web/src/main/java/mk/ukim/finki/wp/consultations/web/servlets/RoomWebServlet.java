@@ -3,7 +3,6 @@ package mk.ukim.finki.wp.consultations.web.servlets;
 import mk.ukim.finki.wp.consultations.model.Room;
 import mk.ukim.finki.wp.consultations.service.RoomService;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,17 +11,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name="room-web-servlet",urlPatterns = "/servlet/room")
+@WebServlet(name = "room-web-servlet", urlPatterns = "/servlet/room")
 public class RoomWebServlet extends HttpServlet {
 
-    private RoomService roomService;
+    private final RoomService roomService;
 
     public RoomWebServlet(RoomService roomService) {
         this.roomService = roomService;
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         String ipAddress = req.getRemoteHost();
         String clientAgent = req.getHeader("User-Agent");
@@ -34,7 +33,7 @@ public class RoomWebServlet extends HttpServlet {
         writer.write("</head>");
         writer.write("<body>");
         writer.write("<h1>");
-        writer.write("Hi "+clientAgent);
+        writer.write("Hi " + clientAgent);
         writer.write("</h1>");
         writer.write("<div>");
         writer.write("Your IP address is:");
@@ -42,9 +41,8 @@ public class RoomWebServlet extends HttpServlet {
         writer.write("</div>");
         writer.write("<div>Let's list the rooms</div>");
         writer.write("<ul>");
-        rooms.stream()
-                .forEach(r->
-                        writer.write("<li>"+r.getName()+"</li>")
+        rooms.forEach(r ->
+                writer.write("<li>" + r.getName() + "</li>")
         );
         writer.write("</ul>");
         writer.write("</body>");

@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "thymeleaf", urlPatterns = "*.html")
 public class ThymeleafBasicServlet extends HttpServlet {
 
-    private SpringTemplateEngine springTemplateEngine;
+    private final SpringTemplateEngine springTemplateEngine;
 
     public ThymeleafBasicServlet(SpringTemplateEngine springTemplateEngine) {
         this.springTemplateEngine = springTemplateEngine;
