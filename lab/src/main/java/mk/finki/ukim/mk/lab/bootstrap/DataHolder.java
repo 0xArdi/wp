@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class DataHolder {
-    private static List<Pizza> pizzas;
+    public static List<Pizza> pizzas;
 
     static {
         pizzas = new LinkedList<>();
