@@ -21,13 +21,20 @@ public class PizzaOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String size = req.getParameter("size");
-        req.getSession().setAttribute("size", size);
+        req.getSession().setAttribute("pizzaSize", size);
         resp.sendRedirect("/pizzaOrder");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
+
+        String pizzaType = (String) req.getSession().getAttribute("pizzaType");
+        String pizzaSize = (String) req.getSession().getAttribute("pizzaSize");
+
+        webContext.setVariable("pizzaSize", pizzaSize);
+        webContext.setVariable("pizzaType", pizzaType);
+
         this.springTemplateEngine.process("delivery-info.html", webContext, resp.getWriter());
     }
 }
