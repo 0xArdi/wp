@@ -16,14 +16,16 @@
 </header>
 <main>
     <h2>Choose pizza:</h2>
-    <th:block th:each="pizza : ${pizzas}">
-        <input type="radio"
-               name="pizza"
-               th:value="${pizza.getName()}"
-               th:text="${pizza.getName()} + ' ' + ${pizza.getDescription()}"> <br/>
-    </th:block>
-    <br/>
-    <a href="/selectPizzaSize.html">Submit</a>
+    <form action="" method="POST">
+        <th:block th:each="pizza : ${pizzas}">
+            <input type="radio"
+                   name="pizza"
+                   th:value="${pizza.getName()}"
+                   th:text="${pizza.getName()} + ' ' + ${pizza.getDescription()}"> <br/>
+        </th:block>
+        <br/>
+        <button type="submit">Next</button>
+    </form>
 </main>
 </body>
 </html>
