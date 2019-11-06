@@ -34,7 +34,7 @@ public class ConfirmationInfo extends HttpServlet {
         String clientName = (String) req.getSession().getAttribute("clientName");
         String clientAddress = (String) req.getSession().getAttribute("clientAddress");
         String clientIp = req.getRemoteAddr();
-        String clientBrowser = req.getRemoteHost();
+        String clientBrowser = req.getHeader("User-Agent");
         String pizzaType = (String) req.getSession().getAttribute("pizzaType");
         String pizzaSize = (String) req.getSession().getAttribute("pizzaSize");
 
