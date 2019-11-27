@@ -14,11 +14,9 @@ public interface PizzaService {
 
     void deletePizza(String id);
 
-    List<Pizza> getAllPizzas();
+    List<Pizza> getAllPizzas(int totalIngredients);
 
     Pizza getPizza(String id);
-
-    List<Pizza> getPizzasWithLessIngredients(int n);
 
     List<Ingredient> getCommonIngredients(String pizzaId1, String pizzaId2);
 }

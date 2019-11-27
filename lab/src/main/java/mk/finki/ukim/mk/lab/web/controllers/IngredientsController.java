@@ -28,6 +28,7 @@ public class IngredientsController {
         return this.ingredientService.editIngredient(id, ingredient);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{id}")
     public void deleteIngredient(@PathVariable String id) {
         this.ingredientService.deleteIngredient(id);

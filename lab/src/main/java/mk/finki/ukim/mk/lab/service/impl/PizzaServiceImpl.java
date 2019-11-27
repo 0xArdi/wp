@@ -46,19 +46,17 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public List<Pizza> getAllPizzas() {
-        return this.pizzaRepo.findAll();
+    public List<Pizza> getAllPizzas(int totalIngredients) {
+        if (totalIngredients <= 0)
+            return this.pizzaRepo.findAll();
+
+        return this.pizzaRepo.findByIngredientCount(totalIngredients);
     }
 
     @Override
     public Pizza getPizza(String id) {
         return this.pizzaRepo.findById(id)
                 .orElseThrow(PizzaDoesntExistException::new);
-    }
-
-    @Override
-    public List<Pizza> getPizzasWithLessIngredients(int n) {
-        return this.pizzaRepo.findPizzaByIngredientsIsGreaterThan(n);
     }
 
     @Override

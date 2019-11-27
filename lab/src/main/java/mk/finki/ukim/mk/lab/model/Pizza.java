@@ -1,9 +1,6 @@
 package mk.finki.ukim.mk.lab.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -12,7 +9,7 @@ public class Pizza {
     @Id
     private String name;
     private String description;
-    @OneToMany
+    @ManyToMany(targetEntity = Ingredient.class)
     private List<Ingredient> ingredients;
     private boolean veggie;
 
