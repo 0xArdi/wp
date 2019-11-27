@@ -1,11 +1,12 @@
 package mk.finki.ukim.mk.lab.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "ingredients")
 public class Ingredient {
 
     @Id
