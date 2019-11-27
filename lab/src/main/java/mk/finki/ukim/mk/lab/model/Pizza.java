@@ -1,8 +1,12 @@
 package mk.finki.ukim.mk.lab.model;
 
+import java.util.List;
+
 public class Pizza {
     private String name;
     private String description;
+    private List<Ingredient> ingredients;
+    private boolean veggie;
 
     public Pizza(String name, String description) {
         this.name = name;
@@ -10,6 +14,22 @@ public class Pizza {
     }
 
     public Pizza() {
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public boolean isVeggie() {
+        return veggie;
+    }
+
+    public void setVeggie(boolean veggie) {
+        this.veggie = veggie;
     }
 
     public String getName() {
