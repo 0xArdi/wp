@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public class PizzaInMemoryRepository implements PizzaRepository {
-    @Override
+public class PizzaInMemoryRepository {
+
     public List<Pizza> getAllPizzas() {
         return DataHolder.pizzas;
     }
