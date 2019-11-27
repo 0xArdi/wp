@@ -39,17 +39,20 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public void deletePizza(String id) {
-
+        if (!this.pizzaRepo.existsById(id))
+            throw new PizzaDoesntExistException();
+        this.pizzaRepo.deleteById(id);
     }
 
     @Override
     public List<Pizza> getAllPizzas() {
-        return null;
+        return this.pizzaRepo.findAll();
     }
 
     @Override
     public Pizza getPizza(String id) {
-        return null;
+        return this.pizzaRepo.findById(id)
+                .orElseThrow(PizzaDoesntExistException::new);
     }
 
     @Override
