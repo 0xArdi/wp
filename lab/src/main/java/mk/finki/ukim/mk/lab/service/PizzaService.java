@@ -19,4 +19,6 @@ public interface PizzaService {
     Pizza getPizza(String id);
 
     List<Ingredient> getCommonIngredients(String pizzaId1, String pizzaId2);
+
+    List<Pizza> getPizzaContaining(String ingredient);
 }

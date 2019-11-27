@@ -67,4 +67,9 @@ public class PizzaServiceImpl implements PizzaService {
                 .filter(ingredients::contains)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Pizza> getPizzaContaining(String ingredient) {
+        return this.pizzaRepo.findPizzaByIngredientsContains(ingredient);
+    }
 }

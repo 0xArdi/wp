@@ -1,20 +1,26 @@
 package mk.finki.ukim.mk.lab.web.controllers;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
+import mk.finki.ukim.mk.lab.model.Pizza;
 import mk.finki.ukim.mk.lab.model.exceptions.IngredientDoesntExistException;
 import mk.finki.ukim.mk.lab.service.IngredientService;
+import mk.finki.ukim.mk.lab.service.PizzaService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ingredients")
 public class IngredientsController {
 
     private final IngredientService ingredientService;
+    private final PizzaService pizzaService;
 
-    public IngredientsController(IngredientService ingredientService) {
+    public IngredientsController(IngredientService ingredientService, PizzaService pizzaService) {
         this.ingredientService = ingredientService;
+        this.pizzaService = pizzaService;
     }
 
     @PostMapping
@@ -45,6 +51,11 @@ public class IngredientsController {
                                            @RequestParam(required = false, defaultValue = "0") int page,
                                            @RequestParam(required = false, defaultValue = "false") boolean isSpicy) {
         return this.ingredientService.getIngredients(page, size, isSpicy);
+    }
+
+    @GetMapping("/{ingredient}/pizzas")
+    public List<Pizza> getPizzasContaining(@PathVariable String ingredient) {
+        return this.pizzaService.getPizzaContaining(ingredient);
     }
 
 

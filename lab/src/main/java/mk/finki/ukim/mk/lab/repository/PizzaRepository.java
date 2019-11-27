@@ -12,4 +12,6 @@ public interface PizzaRepository extends JpaRepository<Pizza, String> {
 
     @Query("select p from Pizza p where size(p.ingredients)>?1")
     List<Pizza> findByIngredientCount(int n);
+
+    List<Pizza> findPizzaByIngredientsContains(String ingredient);
 }
