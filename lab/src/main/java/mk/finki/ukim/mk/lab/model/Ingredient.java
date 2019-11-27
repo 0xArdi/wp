@@ -11,11 +11,11 @@ public class Ingredient {
 
     @Id
     private String name;
-    private String spicy;
+    private boolean spicy;
     private float amount;
     private boolean veggie;
 
-    public Ingredient(String name, String spicy, float amount, boolean veggie) {
+    public Ingredient(String name, boolean spicy, float amount, boolean veggie) {
         this.name = name;
         this.spicy = spicy;
         this.amount = amount;
@@ -33,11 +33,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getSpicy() {
+    public boolean isSpicy() {
         return spicy;
     }
 
-    public void setSpicy(String spicy) {
+    public void setSpicy(boolean spicy) {
         this.spicy = spicy;
     }
 
@@ -65,11 +65,11 @@ public class Ingredient {
         return Float.compare(that.getAmount(), getAmount()) == 0 &&
                 isVeggie() == that.isVeggie() &&
                 Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getSpicy(), that.getSpicy());
+                Objects.equals(isSpicy(), that.isSpicy());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSpicy(), getAmount(), isVeggie());
+        return Objects.hash(getName(), isSpicy(), getAmount(), isVeggie());
     }
 }
