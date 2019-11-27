@@ -21,6 +21,13 @@ public class PizzaOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String size = req.getParameter("size");
+        String pizzaType = (String) req.getSession().getAttribute("pizzaType");
+        req.getSession().setAttribute("error", "");
+        if (pizzaType.equals("Margherita")) {
+            req.getSession().setAttribute("error", "You can't select this pizza type!");
+            resp.sendRedirect("/");
+            return;
+        }
         req.getSession().setAttribute("pizzaSize", size);
         resp.sendRedirect("/pizzaOrder");
     }

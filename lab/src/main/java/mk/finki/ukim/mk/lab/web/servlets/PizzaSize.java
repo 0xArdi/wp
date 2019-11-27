@@ -19,8 +19,9 @@ public class PizzaSize extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        WebContext webContext = new WebContext(req, resp, req.getServletContext());
         String pizzaType = (String) req.getSession().getAttribute("pizzaType");
+        req.getSession().setAttribute("error", "");
+        WebContext webContext = new WebContext(req, resp, req.getServletContext());
         webContext.setVariable("pizza", pizzaType);
         this.springTemplateEngine.process("select-size", webContext, resp.getWriter());
     }

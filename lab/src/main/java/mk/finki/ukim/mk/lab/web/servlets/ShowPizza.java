@@ -28,6 +28,7 @@ public class ShowPizza extends HttpServlet {
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         List<Pizza> pizzas = this.pizzaService.listPizzas();
         webContext.setVariable("pizzas", pizzas);
+        webContext.setVariable("error", req.getSession().getAttribute("error"));
         resp.setContentType("text/html; charset=UTF-8");
         this.springTemplateEngine.process("show-pizza.html", webContext, resp.getWriter());
     }
@@ -35,6 +36,11 @@ public class ShowPizza extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String pizzaType = req.getParameter("pizza");
+        if (pizzaType == null || pizzaType.isEmpty()) {
+            req.getSession().setAttribute("error", "You must select a pizza");
+            resp.sendRedirect("/");
+            return;
+        }
         req.getSession().setAttribute("pizzaType", pizzaType);
         resp.sendRedirect("/selectPizzaSize");
     }
