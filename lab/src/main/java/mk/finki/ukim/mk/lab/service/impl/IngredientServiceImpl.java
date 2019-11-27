@@ -1,6 +1,7 @@
 package mk.finki.ukim.mk.lab.service.impl;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
+import mk.finki.ukim.mk.lab.model.exceptions.DuplicateIngredientNameException;
 import mk.finki.ukim.mk.lab.model.exceptions.IngredientDoesntExistException;
 import mk.finki.ukim.mk.lab.model.exceptions.SpicyIngredientAmountExceed;
 import mk.finki.ukim.mk.lab.repository.IngredientsRepository;
@@ -28,6 +29,8 @@ public class IngredientServiceImpl implements IngredientService {
     public String createIngredient(Ingredient ingredient) {
         if (ingredient.isSpicy() && this.ingredientsRepository.countAllBySpicyIsTrue() > 2)
             throw new SpicyIngredientAmountExceed();
+        if (this.ingredientsRepository.existsById(ingredient.getName()))
+            throw new DuplicateIngredientNameException();
         return this.ingredientsRepository.save(ingredient).getName();
     }
 
