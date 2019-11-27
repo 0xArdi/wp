@@ -1,8 +1,15 @@
 package mk.finki.ukim.mk.lab.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
+@Entity
+@Table(name = "pizzas")
 public class Pizza {
+    @Id
+    private long pizzaId;
     private String name;
     private String description;
     private List<Ingredient> ingredients;
