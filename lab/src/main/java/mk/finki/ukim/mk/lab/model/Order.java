@@ -1,10 +1,19 @@
 package mk.finki.ukim.mk.lab.model;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "orders")
 public class Order {
+
+    @Id
+    private Long orderId;
     private String pizzaType;
     private String clientName;
     private String clientAddress;
-    private Long orderId;
 
     public Order() {
     }
