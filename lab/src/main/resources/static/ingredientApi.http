@@ -38,7 +38,9 @@ GET http://localhost:8080/ingredients?spicy=true
 
 ###
 
-GET http://localhost:8080/ingredients/{id}/pizzas
+GET http://localhost:8080/ingredients/testIngredient/pizzas
+
+###
 
 
 
