@@ -3,6 +3,7 @@ package mk.finki.ukim.mk.lab.service.impl;
 import mk.finki.ukim.mk.lab.model.Ingredient;
 import mk.finki.ukim.mk.lab.model.Pizza;
 import mk.finki.ukim.mk.lab.model.exceptions.DuplicatePizzaNameException;
+import mk.finki.ukim.mk.lab.model.exceptions.NonVeggieIngredientException;
 import mk.finki.ukim.mk.lab.model.exceptions.PizzaDoesntExistException;
 import mk.finki.ukim.mk.lab.repository.PizzaRepository;
 import mk.finki.ukim.mk.lab.service.PizzaService;
@@ -28,6 +29,14 @@ public class PizzaServiceImpl implements PizzaService {
     public String createPizza(Pizza pizza) {
         if (this.pizzaRepo.existsById(pizza.getName()))
             throw new DuplicatePizzaNameException();
+
+        boolean isVeggie = pizza.getIngredients().stream().allMatch(Ingredient::isVeggie);
+
+        if (pizza.isVeggie() && isVeggie)
+            throw new NonVeggieIngredientException();
+
+        pizza.setVeggie(isVeggie);
+
         return this.pizzaRepo.save(pizza).getName();
     }
 
