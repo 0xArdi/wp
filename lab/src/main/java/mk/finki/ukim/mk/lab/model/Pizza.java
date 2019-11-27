@@ -2,6 +2,7 @@ package mk.finki.ukim.mk.lab.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Pizza {
     private long pizzaId;
     private String name;
     private String description;
+    @OneToMany
     private List<Ingredient> ingredients;
     private boolean veggie;
 
