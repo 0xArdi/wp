@@ -9,6 +9,7 @@ import mk.finki.ukim.mk.lab.service.PizzaService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PizzaServiceImpl implements PizzaService {
@@ -57,11 +58,15 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public List<Pizza> getPizzasWithLessIngredients(int n) {
-        return null;
+        return this.pizzaRepo.findPizzaByIngredientsIsGreaterThan(n);
     }
 
     @Override
     public List<Ingredient> getCommonIngredients(String pizzaId1, String pizzaId2) {
-        return null;
+        List<Ingredient> ingredients = this.getPizza(pizzaId1).getIngredients();
+        return this.getPizza(pizzaId2).getIngredients()
+                .stream()
+                .filter(ingredients::contains)
+                .collect(Collectors.toList());
     }
 }
