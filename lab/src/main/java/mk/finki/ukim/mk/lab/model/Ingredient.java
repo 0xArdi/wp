@@ -10,7 +10,6 @@ import java.util.Objects;
 public class Ingredient {
 
     @Id
-    private long ingredientId;
     private String name;
     private String spicy;
     private float amount;

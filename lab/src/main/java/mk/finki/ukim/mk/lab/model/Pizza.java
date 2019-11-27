@@ -10,7 +10,6 @@ import java.util.List;
 @Table(name = "pizzas")
 public class Pizza {
     @Id
-    private long pizzaId;
     private String name;
     private String description;
     @OneToMany
