@@ -4,6 +4,7 @@ import mk.finki.ukim.mk.lab.model.Ingredient;
 import mk.finki.ukim.mk.lab.model.Pizza;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.SimplePizzaDTO;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.DuplicatePizzaNameException;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.IngredientDoesntExistException;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.NonVeggieIngredientException;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.PizzaDoesntExistException;
 import mk.finki.ukim.mk.lab.repository.PizzaRepository;
@@ -94,7 +95,10 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public List<Pizza> getPizzaContaining(String ingredient) {
+    public List<Pizza> getPizzaContaining(String ingredientId) {
+        Ingredient ingredient = this.ingredientService.getIngredient(ingredientId)
+                .orElseThrow(IngredientDoesntExistException::new);
+
         return this.pizzaRepository.findPizzaByIngredientsContains(ingredient);
     }
 }

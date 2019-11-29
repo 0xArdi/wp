@@ -2,8 +2,8 @@ POST http://localhost:8080/ingredients
 Content-Type: application/json
 
 {
-  "name":"testIngredient",
-  "spicy": true,
+  "name":"testIngredient0",
+  "spicy": false,
   "veggie": true,
   "amount": 1.21
 }
@@ -38,7 +38,7 @@ GET http://localhost:8080/ingredients?spicy=true
 
 ###
 
-GET http://localhost:8080/ingredients/testIngredient/pizzas
+GET http://localhost:8080/ingredients/testIngredient2/pizzas
 
 ###
 
