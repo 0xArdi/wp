@@ -25,7 +25,7 @@ public class PizzaController {
         return this.pizzaService.createPizza(pizza);
     }
 
-    @PatchMapping("{id}")
+    @PutMapping("{id}")
     public Pizza editPizza(@PathVariable String id, @RequestBody SimplePizzaDTO pizza) {
         return this.pizzaService.editPizza(id, pizza);
     }

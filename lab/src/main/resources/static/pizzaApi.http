@@ -11,3 +11,33 @@ Content-Type: application/json
 }
 
 ###
+
+PUT http://localhost:8080/pizzas/testPizza
+Content-Type: application/json
+
+{
+  "name": "changedName",
+  "description": "testPizza",
+  "ingredients": [
+    "testIngredient"
+  ],
+  "veggie": true
+}
+
+###
+
+DELETE http://localhost:8080/pizzas/changedName
+
+###
+
+GET http://localhost:8080/pizzas
+
+###
+
+GET http://localhost:8080/pizzas?totalIngredients=100
+
+###
+
+GET http://localhost:8080/pizzas/compare?pizza1=changedName&pizza2=changedName
+
+###
