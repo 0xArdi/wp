@@ -1,0 +1,13 @@
+POST http://localhost:8080/pizzas
+Content-Type: application/json
+
+{
+  "name": "testPizza",
+  "description": "abcd",
+  "ingredients": [
+    "testIngredient"
+  ],
+  "veggie": true
+}
+
+###

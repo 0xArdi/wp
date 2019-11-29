@@ -1,9 +1,9 @@
 package mk.finki.ukim.mk.lab.service.impl;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
-import mk.finki.ukim.mk.lab.model.exceptions.DuplicateIngredientNameException;
-import mk.finki.ukim.mk.lab.model.exceptions.IngredientDoesntExistException;
-import mk.finki.ukim.mk.lab.model.exceptions.SpicyIngredientAmountExceed;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.DuplicateIngredientNameException;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.IngredientDoesntExistException;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.SpicyIngredientAmountExceed;
 import mk.finki.ukim.mk.lab.repository.IngredientsRepository;
 import mk.finki.ukim.mk.lab.service.IngredientService;
 import org.springframework.data.domain.Page;
@@ -59,6 +59,15 @@ public class IngredientServiceImpl implements IngredientService {
         if (isSpicy)
             return new PageImpl<>(this.ingredientsRepository.findAllBySpicyIsTrue());
         return this.ingredientsRepository.findAll(PageRequest.of(page, size, Sort.by("name").ascending()));
+    }
+
+    @Override
+    public List<Ingredient> getIngredients(List<String> ingredientIds) {
+        List<Ingredient> ingredients = this.ingredientsRepository.findAllById(ingredientIds);
+        if (ingredientIds.size() != ingredients.size()) {
+            throw new IngredientDoesntExistException();
+        }
+        return ingredients;
     }
 
     @Override

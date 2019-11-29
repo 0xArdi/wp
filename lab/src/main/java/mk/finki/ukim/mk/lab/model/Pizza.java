@@ -1,5 +1,7 @@
 package mk.finki.ukim.mk.lab.model;
 
+import mk.finki.ukim.mk.lab.model.transferable.dtos.SimplePizzaDTO;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,9 +15,11 @@ public class Pizza {
     private List<Ingredient> ingredients;
     private boolean veggie;
 
-    public Pizza(String name, String description) {
+    public Pizza(String name, String description, List<Ingredient> ingredients, boolean veggie) {
         this.name = name;
         this.description = description;
+        this.ingredients = ingredients;
+        this.veggie = veggie;
     }
 
     public Pizza() {

@@ -2,7 +2,7 @@ package mk.finki.ukim.mk.lab.web.controllers;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
 import mk.finki.ukim.mk.lab.model.Pizza;
-import mk.finki.ukim.mk.lab.model.exceptions.IngredientDoesntExistException;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.IngredientDoesntExistException;
 import mk.finki.ukim.mk.lab.service.IngredientService;
 import mk.finki.ukim.mk.lab.service.PizzaService;
 import org.springframework.data.domain.Page;

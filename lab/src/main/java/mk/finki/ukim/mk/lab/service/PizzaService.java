@@ -2,15 +2,16 @@ package mk.finki.ukim.mk.lab.service;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
 import mk.finki.ukim.mk.lab.model.Pizza;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.SimplePizzaDTO;
 
 import java.util.List;
 
 public interface PizzaService {
     List<Pizza> listPizzas();
 
-    String createPizza(Pizza pizza);
+    String createPizza(SimplePizzaDTO pizza);
 
-    Pizza editPizza(String id, Pizza pizza);
+    Pizza editPizza(String id, SimplePizzaDTO pizza);
 
     void deletePizza(String id);
 

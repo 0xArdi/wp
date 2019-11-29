@@ -2,6 +2,7 @@ package mk.finki.ukim.mk.lab.web.controllers;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
 import mk.finki.ukim.mk.lab.model.Pizza;
+import mk.finki.ukim.mk.lab.model.transferable.dtos.SimplePizzaDTO;
 import mk.finki.ukim.mk.lab.service.PizzaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,12 @@ public class PizzaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String createPizza(@RequestBody Pizza pizza) {
+    public String createPizza(@RequestBody SimplePizzaDTO pizza) {
         return this.pizzaService.createPizza(pizza);
     }
 
     @PatchMapping("{id}")
-    public Pizza editPizza(@PathVariable String id, @RequestBody Pizza pizza) {
+    public Pizza editPizza(@PathVariable String id, @RequestBody SimplePizzaDTO pizza) {
         return this.pizzaService.editPizza(id, pizza);
     }
 

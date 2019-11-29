@@ -17,5 +17,7 @@ public interface IngredientService {
 
     Page<Ingredient> getIngredients(int page, int size, boolean isSpicy);
 
+    List<Ingredient> getIngredients(List<String> ingredientIds);
+
     List<Ingredient> getSpicyIngredients(boolean isSpicy);
 }
