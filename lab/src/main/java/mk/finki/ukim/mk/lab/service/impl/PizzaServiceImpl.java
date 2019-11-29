@@ -6,7 +6,6 @@ import mk.finki.ukim.mk.lab.model.transferable.dtos.SimplePizzaDTO;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.DuplicatePizzaNameException;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.NonVeggieIngredientException;
 import mk.finki.ukim.mk.lab.model.transferable.dtos.exceptions.PizzaDoesntExistException;
-import mk.finki.ukim.mk.lab.repository.IngredientsRepository;
 import mk.finki.ukim.mk.lab.repository.PizzaRepository;
 import mk.finki.ukim.mk.lab.service.IngredientService;
 import mk.finki.ukim.mk.lab.service.PizzaService;
@@ -49,7 +48,7 @@ public class PizzaServiceImpl implements PizzaService {
     private Pizza getPizza(SimplePizzaDTO simplePizza) {
         Pizza pizza = new Pizza();
         pizza.setName(simplePizza.getName());
-        pizza.setDescription(simplePizza.getDesc());
+        pizza.setDescription(simplePizza.getDescription());
         pizza.setIngredients(this.ingredientService.getIngredients(simplePizza.getIngredients()));
         pizza.setVeggie(simplePizza.isVeggie());
 

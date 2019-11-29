@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SimplePizzaDTO {
     private String name;
-    private String desc;
+    private String description;
     private List<String> ingredients;
     private boolean veggie;
 
@@ -13,7 +13,7 @@ public class SimplePizzaDTO {
 
     public SimplePizzaDTO(String name, String desc, List<String> ingredients, boolean veggie) {
         this.name = name;
-        this.desc = desc;
+        this.description = desc;
         this.ingredients = ingredients;
         this.veggie = veggie;
     }
@@ -26,12 +26,12 @@ public class SimplePizzaDTO {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<String> getIngredients() {
