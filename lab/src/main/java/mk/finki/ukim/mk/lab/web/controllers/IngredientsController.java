@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/ingredients")
 public class IngredientsController {
@@ -56,6 +57,11 @@ public class IngredientsController {
     @GetMapping("/{ingredient}/pizzas")
     public List<Pizza> getPizzasContaining(@PathVariable String ingredient) {
         return this.pizzaService.getPizzaContaining(ingredient);
+    }
+
+    @GetMapping("/search/{key}")
+    public List<Ingredient> searchIngredient(@PathVariable String key) {
+        return this.ingredientService.searchIngredient(key);
     }
 
 

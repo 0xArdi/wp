@@ -8,7 +8,7 @@ Content-Type: application/json
     "testIngredient0",
     "testIngredient2"
   ],
-  "veggie": true
+  "veggie": false
 }
 
 ###

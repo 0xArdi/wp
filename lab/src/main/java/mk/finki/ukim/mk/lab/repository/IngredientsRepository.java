@@ -9,5 +9,8 @@ import java.util.List;
 @Repository
 public interface IngredientsRepository extends JpaRepository<Ingredient, String> {
     List<Ingredient> findAllBySpicyIsTrue();
+
+    List<Ingredient> findAllByNameIsLike(String key);
+
     int countAllBySpicyIsTrue();
 }

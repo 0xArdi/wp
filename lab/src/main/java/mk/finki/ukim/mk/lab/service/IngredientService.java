@@ -20,4 +20,6 @@ public interface IngredientService {
     List<Ingredient> getIngredients(List<String> ingredientIds);
 
     List<Ingredient> getSpicyIngredients(boolean isSpicy);
+
+    List<Ingredient> searchIngredient(String key);
 }

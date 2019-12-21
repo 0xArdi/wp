@@ -29,8 +29,10 @@ public class IngredientServiceImpl implements IngredientService {
     public String createIngredient(Ingredient ingredient) {
         if (ingredient.isSpicy() && this.ingredientsRepository.countAllBySpicyIsTrue() > 2)
             throw new SpicyIngredientAmountExceed();
+
         if (this.ingredientsRepository.existsById(ingredient.getName()))
             throw new DuplicateIngredientNameException();
+
         return this.ingredientsRepository.save(ingredient).getName();
     }
 
@@ -75,5 +77,10 @@ public class IngredientServiceImpl implements IngredientService {
         if (isSpicy)
             return this.ingredientsRepository.findAllBySpicyIsTrue();
         return new ArrayList<>();
+    }
+
+    @Override
+    public List<Ingredient> searchIngredient(String key) {
+        return this.ingredientsRepository.findAllByNameIsLike(key);
     }
 }
